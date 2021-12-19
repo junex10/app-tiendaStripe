@@ -1,0 +1,30 @@
+.new-background-color {
+    --background: var(--blue-dark) !important;
+}
+.icon {
+    padding: 10px;
+    font-size: 24px;
+    color: var(--black-gray);
+    .notification {
+        background-color: var(--danger);
+        padding: 5px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        border-radius: 50%;
+        font-size: 11px;
+        float: right;
+        position: relative;
+        bottom: 10px;
+        left: -5px;
+        z-index: 1;
+    }
+}
+ion-icon.action-icon {
+    color: white !important;
+}
+ion-icon{
+    color: white !important;
+}
+ion-list ion-item{
+    --background: transparent !important;
+}

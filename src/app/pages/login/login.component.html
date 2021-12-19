@@ -1,0 +1,29 @@
+<div id='background'>
+  <div id='opacity-black'></div>
+  <div id='content-login'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-12 login-pretitle'>
+          <i class="fas fa-grip-lines"></i> <span>TiendaStripe</span>
+        </div>
+        <div class='col-12 login-title mt-4'>
+          <h1>Login</h1>
+          <hr class='line-green' />
+        </div>
+      </div>
+      <form class='d-block m-auto text-center form-login'>
+        <div class='row mt-4'>
+          <div class='col-12'>
+            <span class='login-icon'><i class="fas fa-user"></i></span>
+            <input type='text' placeholder='Usuario...' name='email' #email>
+          </div>
+          <div class='col-12 mt-4'>
+            <span class='login-icon'><i class="fas fa-key"></i></span>
+            <input type='password' placeholder='Contraseña...' name='password' #password>
+          </div>
+        </div>
+        <button type='button' (click)="login(email, password)" class='btn btn-success btn-block mt-4 w-100'>Iniciar sesion</button>
+      </form>
+    </div>
+  </div>
+</div>

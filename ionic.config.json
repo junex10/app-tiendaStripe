@@ -1,0 +1,8 @@
+{
+  "name": "tienda-stripe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "proxy": "https://tienda-stripe.herokuapp.com/"
+}

@@ -1,0 +1,17 @@
+ion-searchbar {
+    max-width: 95%;
+    --background: white !important;
+}
+ion-select {
+    color: white;
+    --background: var(--azul-form);
+}
+.select-interface-option.md.sc-ion-select-popover.item.in-list.ion-activatable.ion-focusable.hydrated.item-label{
+    --background: transparent !important;
+}
+.select-interface-option.md.sc-ion-select-popover-md.item.item-fill-none.in-list.ion-activatable.ion-focusable.hydrated.item-label.ion-focused{
+    --background: none !important;
+}
+.select-interface-option.md.sc-ion-select-popover-md.item.item-fill-none.in-list.ion-activatable.ion-focusable.hydrated.item-label{
+    --background: transparent !important;
+}

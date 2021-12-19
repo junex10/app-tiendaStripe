@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar style="--background:var(--blue-dark);">
+    <ion-buttons slot="start" style="color:white;">
+      <ion-back-button [routerLink]="['/store']" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" style="color:white;">Detalles del producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="refresh()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class='container-fluid mt-4'>
+    <div class='card boxShadowItems'>
+      <div class='image'>
+        <img [src]="image" />
+      </div>
+      <div class='card-body'>
+        <h5 class='card-title' *ngIf='!editing'>{{ productName }} <br />
+          <div class='time-detail mt-3 mb-2'>{{ time }}</div>
+        </h5>
+        <div class='row mb-4' *ngIf='!editing'>
+          <div class='tab text-center col-4 actived text-white' (click)="selectTab('price', price)" #price>
+            <h6>Precio</h6>
+          </div>
+          <div class='tab col-4 text-center text-white' (click)="selectTab('stock', stock)" #stock>
+            <h6>En stock</h6>
+          </div>
+          <div class='tab col-4 text-center text-white' (click)="selectTab('category', category)" #category>
+            <h6>Categoria</h6>
+          </div>
+        </div>
+
+        <ng-container *ngIf='!editing'>
+          <div class='row' *ngIf='priceOpen'>
+            <div class='col-12'>
+              <h3 class='text-center' [ngStyle]="{'color': 'white', 'font-weight': 'bolder'}">{{ priceV }} $</h3>
+            </div>
+          </div>
+
+          <div class='row' *ngIf='stockOpen'>
+            <div class='col-12'>
+              <h3 class='text-center' [ngStyle]="{'color': 'white', 'font-weight': 'bolder'}">{{ stockV }} unidades</h3>
+            </div>
+          </div>
+
+          <div class='row' *ngIf='categoryOpen'>
+            <div class='col-12'>
+              <h3 class='text-center' [ngStyle]="{'color': 'white', 'font-weight': 'bolder'}">{{ categoryV }}</h3>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf='editing'>
+          <form class='d-block m-auto text-center form-login w-100'>
+
+            <div class='row mb-4'>
+              <div class='col-12'>
+                <input type='text' id='productName' class='form-control' [value]='productName' #productForm />
+              </div>
+            </div>
+
+            <div class='row mb-4'>
+              <div class='col-12'>
+                <input type='text' class='form-control' [value]='priceV' #priceForm />
+              </div>
+            </div>
+
+            <div class='row mb-4'>
+              <div class='col-12'>
+                <input type='text' class='form-control' [value]='stockV' #stockForm />
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-12'>
+                <select class='form-control' #categoryForm (change)='selectCat(categoryForm)'>
+                  <option [value]="categoryV">{{ categoryV }}</option>
+                  <option *ngFor='let c of categorys' [value]="c.name">{{ c.name }}</option>
+                </select>
+              </div>
+            </div>
+            <button type='button' (click)='sendForm(priceForm, stockForm, categoryForm, productForm)' class='btn btn-success btn-block w-75 mt-4 boxShadow'>Enviar</button>
+          </form>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-fab vertical='bottom' horizontal='end' slot='fixed'>
+  <ion-fab-button (click)='edit()'>
+    <i class="fas fa-edit"></i>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab *ngIf='editing' vertical='bottom' horizontal='start' slot='fixed'>
+  <ion-fab-button (click)='camera()'>
+    <i class="fas fa-camera"></i>
+  </ion-fab-button>
+</ion-fab>

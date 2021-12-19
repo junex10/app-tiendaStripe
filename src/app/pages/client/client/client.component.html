@@ -1,0 +1,16 @@
+<ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="refresh()">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+<div id='background-page'>
+  <div class='container-fluid mt-3'>
+    <ion-list-header>
+        <ion-searchbar #searchbar [ngStyle]="{'color': 'black'}" placeholder="Buscar..." animated (ionChange)="buscar($event)"></ion-searchbar>
+    </ion-list-header>
+    <ion-list>
+      <ion-item lines="none" class='mt-4' *ngFor='let item of clients; let i = index' [routerLink]="['/client-detail', item.id]">
+        <ion-label>{{ item.email }}</ion-label>
+        <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'white'}"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="refresh()">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+<div class='container-fluid mt-3'>
+  <ion-list-header>
+    <ng-container *ngIf="bar">
+      <ion-searchbar #searchbar [ngStyle]="{'color': 'black'}" placeholder="Buscar..." animated
+        (ionChange)="buscar($event)"></ion-searchbar>
+      <ion-item lines="none" class='bg-transparent'>
+        <ion-label><i class="fas fa-filter text-light"></i></ion-label>
+        <ion-select interface="popover" (ionChange)='selectCategory($event)'>
+          <ion-select-option *ngFor="let c of categorys; let i = index" value="{{ c.name }}">
+            <p>{{ c.name }}</p>
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ng-container>
+  </ion-list-header>
+  <ion-list>
+    <ion-item lines="none" class='mt-4' *ngFor='let item of products; let i = index'
+      [routerLink]="['/product/product-detail', item.product]">
+      <img [src]="item.image" class='image-item' />
+      <ion-label>{{ item.product }}</ion-label>
+      <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'white'}"></ion-icon>
+    </ion-item>
+  </ion-list>
+</div>

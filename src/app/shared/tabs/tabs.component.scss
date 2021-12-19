@@ -1,0 +1,18 @@
+.icon-tab {
+    font-size: 20px;
+}
+ion-tab-bar {
+    /*border-top-left-radius: 35px;
+    border-top-right-radius: 35px;*/
+    --background: var(--azul-form);
+    --border: none;
+    ion-tab-button {
+        font-weight: bold;
+        --color: white;
+        font-size: 20px;
+    }
+    ion-tab-button.tab-selected {
+        background: var(--blue-dark);
+        color: white !important;
+    }
+}

@@ -1,0 +1,16 @@
+ion-content {
+    .img {
+        width: 90%;
+        height: 200px;
+    }
+}
+ion-header::after {
+    background-image: none;
+}
+.actions {
+    font-size: 24px;
+    position: relative;
+    left: 5%;
+    top: 10px;
+    color: var(--dark);
+}

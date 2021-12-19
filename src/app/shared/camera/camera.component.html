@@ -1,0 +1,13 @@
+<ion-content>
+  <div>
+    <div class='row'>
+      <div class='col-12 mt-4'>
+        <img [src]='image' class='img img-thumbnail d-block m-auto' />
+      </div>
+    </div>
+    <button class='btn btn-success btn-block w-75 boxShadow d-block m-auto mb-4 mt-3' (click)='savePicture()'>Guardar</button>
+  </div>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button (click)='takePicture()' [disabled]="photo"><i class="fas fa-camera"></i></ion-fab-button>
+</ion-fab>
