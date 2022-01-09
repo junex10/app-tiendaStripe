@@ -13,4 +13,4 @@ export const HTTP_OPTIONS_NATIVE = {
     'Accept': 'application/json', 
     'authorization': authorization === null ? '' : authorization.token
 }
-export const USER_TYPE = ['Gerente', 'Usuario'];
+export const USER_TYPE = ['Gerente', 'Usuario']; 
